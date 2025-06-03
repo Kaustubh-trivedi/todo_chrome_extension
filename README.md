@@ -32,22 +32,6 @@ A modern and beautiful **Todo app** as a Chrome Extension, built using **React.j
 
 ---
 
-## 📦 Folder Structure
-
-todo-extension/
-├── public/
-│ ├── manifest.json
-│ ├── background.js
-│ └── icon.png
-├── src/
-│ ├── App.css
-│ ├── TodoApp.jsx
-│ └── index.js
-├── index.html
-├── package.json
-└── README.md
-
-
 
 ---
 
@@ -67,6 +51,10 @@ npm run build
 npm run build
 ```
 This generates a build/ folder ready to be loaded as a Chrome extension.
+---
+
+
+---
 
 🧪 Load Extension in Chrome
 Open chrome://extensions/
@@ -79,12 +67,20 @@ Select the build/ folder
 
 Click the puzzle piece (extensions icon) to open your todo popup!
 
+---
+
+
+---
 
 ### Developement Mode
 ```bash
 npm start
 ```
 ⚠️ Note: Chrome APIs like chrome.storage do not work in localhost mode. Use npm run build and load the extension via chrome://extensions for full functionality.
+---
+
+
+---
 
 🔒 Permissions
 This extension uses:
@@ -92,9 +88,10 @@ This extension uses:
 storage — for saving your todos persistently
 
 action, background — to enable popup and background features (as declared in manifest.json)
+---
 
-📄 License
-MIT License
+
+---
 
 🙌 Credits
 Built with React
@@ -103,8 +100,14 @@ Icons from react-icons
 
 Gradient background via UI Gradients
 
+---
+
+
+---
 
 
 📬 Contact
 Have feedback or suggestions?
+
+
 Feel free to open an issue or reach out via GitHub!
