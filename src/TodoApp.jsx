@@ -68,7 +68,7 @@ const TodoApp = () => {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
-      <button className="add-button" onClick={addTodo}>Add</button>
+      <button className="add-button" onClick={addTodo}>+ Add</button>
 
       <div className="task-section">
         <h3>Pending Tasks</h3>
