@@ -102,6 +102,9 @@ Built with React
 Icons from react-icons
 
 Gradient background via UI Gradients
+
+
+
 📬 Contact
 Have feedback or suggestions?
 Feel free to open an issue or reach out via GitHub!

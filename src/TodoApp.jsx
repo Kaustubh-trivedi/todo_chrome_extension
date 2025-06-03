@@ -17,7 +17,13 @@ const TodoApp = () => {
 
   const addTodo = () => {
     if (!task.trim()) return;
-    const newTodo = { task, description, completed: false };
+    const newTodo = {
+      id: Date.now(), // unique identifier
+      task,
+      description,
+      completed: false
+    };
+
     const updatedTodos = [...todos, newTodo];
     setTodos(updatedTodos);
     chrome.storage.local.set({ todos: updatedTodos });
@@ -25,25 +31,28 @@ const TodoApp = () => {
     setDescription('');
   };
 
-  const toggleCompletion = (index) => {
-    const updatedTodos = [...todos];
-    updatedTodos[index].completed = !updatedTodos[index].completed;
+  const toggleCompletion = (id) => {
+    const updatedTodos = todos.map(todo =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    );
     setTodos(updatedTodos);
     chrome.storage.local.set({ todos: updatedTodos });
   };
 
-  const deleteTodo = (index) => {
-    const updatedTodos = todos.filter((_, i) => i !== index);
+  const deleteTodo = (id) => {
+    const updatedTodos = todos.filter(todo => todo.id !== id);
     setTodos(updatedTodos);
     chrome.storage.local.set({ todos: updatedTodos });
   };
 
-  const editTodo = (index) => {
-    const todo = todos[index];
+  const editTodo = (id) => {
+    const todo = todos.find(todo => todo.id === id);
+    if (!todo) return;
     setTask(todo.task);
     setDescription(todo.description);
-    deleteTodo(index);
+    deleteTodo(id); // reuse the delete logic
   };
+
 
   return (
     <div className="container">
@@ -64,19 +73,19 @@ const TodoApp = () => {
       <div className="task-section">
         <h3>Pending Tasks</h3>
         {todos.filter(todo => !todo.completed).map((todo, index) => (
-          <div className="task-card" key={index}>
+          <div className="task-card" key={todo.id}>
             <div className="task-details">
               <p className="task-title">{todo.task}</p>
               <p className="task-desc">{todo.description}</p>
             </div>
             <div className="task-buttons">
-              <button onClick={() => toggleCompletion(index)} title="Complete">
+              <button onClick={() => toggleCompletion(todo.id)} title="Complete">
                 <FaCheck color="green" />
               </button>
-              <button onClick={() => editTodo(index)} title="Edit">
+              <button onClick={() => editTodo(todo.id)} title="Edit">
                 <FaEdit color="#007bff" />
               </button>
-              <button onClick={() => deleteTodo(index)} title="Delete">
+              <button onClick={() => deleteTodo(todo.id)} title="Delete">
                 <FaTrash color="red" />
               </button>
             </div>
@@ -87,19 +96,16 @@ const TodoApp = () => {
       <div className="task-section">
         <h3>Completed Tasks</h3>
         {todos.filter(todo => todo.completed).map((todo, index) => (
-          <div className="task-card" key={index}>
+          <div className="task-card" key={todo.id}>
             <div className="task-details">
               <p className="task-title">{todo.task}</p>
               <p className="task-desc">{todo.description}</p>
             </div>
             <div className="task-buttons">
-              <button onClick={() => toggleCompletion(index)} title="Mark as Pending">
+              <button onClick={() => toggleCompletion(todo.id)} title="Mark as Pending">
                 <FaUndo color="orange" />
               </button>
-              <button onClick={() => editTodo(index)} title="Edit">
-                <FaEdit color="#007bff" />
-              </button>
-              <button onClick={() => deleteTodo(index)} title="Delete">
+              <button onClick={() => deleteTodo(todo.id)} title="Delete">
                 <FaTrash color="red" />
               </button>
             </div>
