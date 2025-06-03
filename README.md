@@ -77,8 +77,6 @@ npm start
 
 
 
----
-
 
 🔒 Permissions
 This extension uses: storage — for saving your todos persistently, action, background — to enable popup and background features (as declared in manifest.json)
