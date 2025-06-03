@@ -74,13 +74,14 @@ Click the puzzle piece (extensions icon) to open your todo popup!
 npm start
 ```
 ⚠️ Note: Chrome APIs like chrome.storage do not work in localhost mode. Use npm run build and load the extension via chrome://extensions for full functionality.
+
+
+
 ---
 
 
 🔒 Permissions
-This extension uses:
-
-storage — for saving your todos persistently, action, background — to enable popup and background features (as declared in manifest.json)
+This extension uses: storage — for saving your todos persistently, action, background — to enable popup and background features (as declared in manifest.json)
 ---
 
 🙌 Credits
