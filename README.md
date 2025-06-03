@@ -69,9 +69,6 @@ Click the puzzle piece (extensions icon) to open your todo popup!
 
 ---
 
-
----
-
 ### Developement Mode
 ```bash
 npm start
@@ -80,17 +77,12 @@ npm start
 ---
 
 
----
-
 🔒 Permissions
 This extension uses:
 
 storage — for saving your todos persistently
 
 action, background — to enable popup and background features (as declared in manifest.json)
----
-
-
 ---
 
 🙌 Credits
@@ -102,8 +94,6 @@ Gradient background via UI Gradients
 
 ---
 
-
----
 
 
 📬 Contact
