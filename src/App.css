@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #c3ec52 0%, #0ba29d 100%);
+  min-height: 400px;
+  padding: 20px;
+  color: #333;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+button {
+  margin-left: 5px;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.add-button {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  margin-top: 5px;
+}
+
+.task-section {
+  margin-top: 20px;
+}
+
+.task-section h3 {
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.task-card {
+  background: white;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.task-details {
+  flex: 1;
+}
+
+.task-title {
+  font-weight: bold;
+  margin: 0 0 4px 0;
+  font-size: 16px;
+}
+
+.task-desc {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+}
+
+.task-buttons {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.task-buttons button {
+  background: none;
+  color: #333;
+}
